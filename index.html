@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="CounterApp">
+<head>
+	<title>Digest Cycle</title>
+
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src=digestCycleApp.js></script>
+	<style> 
+		body {
+			font-size: 1.2em;
+		}
+	</style>
+</head>
+	<body>
+		<h1> The Digest Cycle <h1>
+
+		<div ng-controller="CounterController">
+
+			<button ng-click="showNumberOfWatchers()">
+				Log # of Watchers
+			</button>
+
+			<br>
+
+			<button ng-click="countOnce()">
+				Counter increases by One
+			</button>
+
+		</div>
+	</body>
+</html>
