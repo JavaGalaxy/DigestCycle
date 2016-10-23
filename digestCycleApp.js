@@ -3,9 +3,9 @@
   angular.module('CounterApp', [])
   .controller('CounterController', CounterController);
 
-  CounterController.$inject = ['$scope'];
+  CounterController.$inject = ['$scope', '$timeout'];
 
-  function CounterController($scope) {
+  function CounterController($scope, $timeout) {
 
   	$scope.counter = 0;
 
@@ -15,17 +15,37 @@
   		return "Watchers are watching you";
   	}
 
-  	$scope.countOnce = function () {
-  		$scope.counter ++;
-  		
+  	$scope.incrementOnce = function() {
+  		$timeout(function () {
+  			$scope.counter ++;
+  			console.log("Counter incremented !");	
+  		}, 500)
   	}
 
-  	$scope.$watch('counter', function(newValue, oldValue) {
-  			
-  	  console.log("old Value: ", oldValue);
-  	  console.log("new Value: ", newValue);
+  	// $scope.incrementOnce = function () {
+  	// 	setTimeout(function () {
+  	// 	  $scope.$apply(function() {
+  		  
+  	// 		$scope.counter ++;
+  	// 		console.log("Counter incremented !");		
+  	// 		})
+  	// 	}, 2000);
+  		
+  	// }
 
-  	})
+  	// $scope.incrementOnce = function () {
+  	// 	setTimeout(function () {
+  	// 		$scope.counter ++;
+  	// 		$scope.$digest();
+  	// 	}, 2000);
+
+
+ 	// $scope.$watch('counter', function(newValue, oldValue) {
+  			
+  // 	  console.log("old Value: ", oldValue);
+  // 	  console.log("new Value: ", newValue);
+
+  // 	}) 
 
   };
 
